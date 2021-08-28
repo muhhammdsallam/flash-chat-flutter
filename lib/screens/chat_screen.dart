@@ -115,7 +115,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     },
                     icon: Icon(
                       Icons.send_rounded,
-                      color: Colors.blue,
+                      color: Color(0xFF006BFF),
                       size: 25,
                     ),
                   ),
@@ -182,10 +182,7 @@ class MessageBubble extends StatelessWidget {
         crossAxisAlignment:
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
-          Text(
-            isMe ? '' : sender,
-            style: TextStyle(color: Colors.grey.shade700, fontSize: 12.0),
-          ),
+          SizedBox(height: 5),
           Material(
             borderRadius: isMe
                 ? BorderRadius.only(
@@ -201,10 +198,29 @@ class MessageBubble extends StatelessWidget {
             elevation: 0,
             color: isMe ? Color(0xFF006BFF) : Colors.grey.shade300,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 7.0),
-              child: Text('$text',
-                  style: TextStyle(
-                      fontSize: 15, color: isMe ? Colors.white : Colors.black)),
+              padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+              child: isMe
+                  ? Text('$text',
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: isMe ? Colors.white : Colors.black))
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          sender,
+                          style: TextStyle(
+                              color: Colors.grey.shade700, fontSize: 12.0),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text('$text',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: isMe ? Colors.white : Colors.black)),
+                      ],
+                    ),
             ),
           ),
         ],

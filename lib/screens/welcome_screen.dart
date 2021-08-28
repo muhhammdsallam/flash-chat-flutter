@@ -45,11 +45,22 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       body: Column(
         children: [
           Expanded(
-              child: Container(
-            child: CurveShape(
-              isWelcomePage: true,
+              child: Stack(fit: StackFit.expand, children: [
+            Container(
+              child: CurveShape(
+                isWelcomePage: true,
+              ),
             ),
-          )),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  scale: 1.4,
+                  image: AssetImage('images/speech-bubble.png'),
+                  //fit: BoxFit.fill,
+                ),
+              ),
+            )
+          ])),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.0),
             child: Column(
@@ -60,7 +71,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   'TeamChat',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 40,
+                      fontSize: 45,
                       fontWeight: FontWeight.w900),
                 ),
                 SizedBox(
@@ -77,7 +88,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   height: 5.0,
                 ),
                 Text(
-                  'With TeamChat, you will get fast, simple, secure messaging for free, available on phones all over the world.',
+                  'With TeamChat, you will get fast, simple, secure messaging for free.',
                   style: TextStyle(color: Colors.white70),
                 ),
                 SizedBox(

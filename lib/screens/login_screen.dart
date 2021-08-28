@@ -62,6 +62,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     isWelcomePage: false,
                   ),
                 ),
+                Container(
+                  decoration: isKeyboardVisible
+                      ? null
+                      : BoxDecoration(
+                          image: DecorationImage(
+                            alignment: Alignment.centerLeft,
+                            scale: 1.7,
+                            image: AssetImage('images/speech-bubble2.png'),
+                            //fit: BoxFit.fill,
+                          ),
+                        ),
+                ),
                 SafeArea(
                     child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
