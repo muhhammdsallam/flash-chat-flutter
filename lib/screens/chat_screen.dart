@@ -189,13 +189,11 @@ class MessageBubble extends StatelessWidget {
           Material(
             borderRadius: isMe
                 ? BorderRadius.only(
-                    topRight: Radius.circular(3.0),
                     bottomLeft: Radius.circular(20.0),
                     topLeft: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),
                   )
                 : BorderRadius.only(
-                    topLeft: Radius.circular(3.0),
                     bottomLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
                     bottomRight: Radius.circular(20.0),
@@ -203,7 +201,7 @@ class MessageBubble extends StatelessWidget {
             elevation: 0,
             color: isMe ? Color(0xFF006BFF) : Colors.grey.shade300,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+              padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 7.0),
               child: Text('$text',
                   style: TextStyle(
                       fontSize: 15, color: isMe ? Colors.white : Colors.black)),

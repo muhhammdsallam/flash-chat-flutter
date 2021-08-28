@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flash_chat/components/button_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_chat/components/curve_shape.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome';
@@ -41,39 +42,68 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF006BFF),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Expanded(
-              child: Column(
-                children: <Widget>[],
-              ),
+      body: Column(
+        children: [
+          Expanded(
+              child: Container(
+            child: CurveShape(
+              isWelcomePage: true,
             ),
-            SizedBox(
-              height: 48.0,
+          )),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Text(
+                  'TeamChat',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 40,
+                      fontWeight: FontWeight.w900),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  'Simple. Secure. Reliable messaging.',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+                SizedBox(
+                  height: 5.0,
+                ),
+                Text(
+                  'With TeamChat, you will get fast, simple, secure messaging for free, available on phones all over the world.',
+                  style: TextStyle(color: Colors.white70),
+                ),
+                SizedBox(
+                  height: 50.0,
+                ),
+                ButtonWidget(
+                    label: 'Log in',
+                    textColor: Colors.blue.shade800,
+                    color: Colors.white,
+                    onPressed: () {
+                      Navigator.pushNamed(context, LoginScreen.id);
+                    }),
+                ButtonWidget(
+                    label: 'Sign up',
+                    textColor: Colors.white,
+                    color: Color(0xFF006BFF),
+                    onPressed: () {
+                      Navigator.pushNamed(context, RegistrationScreen.id);
+                    }),
+                SizedBox(
+                  height: 20,
+                )
+              ],
             ),
-            ButtonWidget(
-                label: 'Log in',
-                textColor: Colors.blue.shade800,
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.pushNamed(context, LoginScreen.id);
-                }),
-            ButtonWidget(
-                label: 'Sign up',
-                textColor: Colors.white,
-                color: Color(0xFF006BFF),
-                onPressed: () {
-                  Navigator.pushNamed(context, RegistrationScreen.id);
-                }),
-            SizedBox(
-              height: 20,
-            )
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
