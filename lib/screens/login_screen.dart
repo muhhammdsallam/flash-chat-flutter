@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
+import 'package:flash_chat/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/components/button_widget.dart';
 import 'package:flash_chat/constants.dart';
@@ -221,7 +222,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   showSpinner = false;
                                 });
                                 Navigator.pop(context);
-                                Navigator.pushNamed(context, ChatScreen.id);
+                                Navigator.pushNamed(context, MainScreen.id);
 
                                 email = null;
                                 password = null;
